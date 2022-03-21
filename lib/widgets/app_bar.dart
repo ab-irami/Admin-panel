@@ -26,7 +26,7 @@ AppBar appBar(BuildContext context, GlobalKey<ScaffoldState> key) => AppBar(
               },
             ),
       elevation: 0,
-      backgroundColor: light,
+      backgroundColor: Colors.transparent,
       title: Row(
         children: [
           Visibility(

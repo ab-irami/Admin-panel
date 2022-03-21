@@ -55,11 +55,14 @@ class SideMenu extends StatelessWidget {
                           ? 'Log Out'
                           : itemName,
                       onTap: () {
-                        if (itemName == authenticationPageRoute) {}
+                        if (itemName == authenticationPageRoute) {
+                          
+                        }
                         if (!menuController.isActive(itemName)) {
                           menuController.changeActiveItem(itemName);
                           if (Responsive.isSmallScreen(context)) {
                             Get.back();
+                            navigationController.navigateTo(itemName);
                           }
                         }
                       },

@@ -1,3 +1,4 @@
+import 'package:admin_panel_app/helpers/local_navigator.dart';
 import 'package:admin_panel_app/widgets/side_menu.dart';
 import 'package:flutter/material.dart';
 
@@ -12,9 +13,7 @@ class LargeScreen extends StatelessWidget {
           child: SideMenu(),
         ),
         Expanded(
-          child: Container(
-            color: Colors.amber,
-          ),
+          child: localNavigator(),
           flex: 5,
         ),
       ],

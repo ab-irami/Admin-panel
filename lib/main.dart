@@ -1,4 +1,6 @@
+import 'package:admin_panel_app/constants/style.dart';
 import 'package:admin_panel_app/controllers/menu_controller.dart';
+import 'package:admin_panel_app/controllers/navigation_controller.dart';
 import 'package:admin_panel_app/layout.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   Get.put(MenuController());
+  Get.put(NavigationController());
   runApp(const MyApp());
 }
 
@@ -19,7 +22,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Dash Board',
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
+        scaffoldBackgroundColor: light,
         textTheme:
             GoogleFonts.mulishTextTheme(Theme.of(context).textTheme).apply(
           bodyColor: Colors.black,
