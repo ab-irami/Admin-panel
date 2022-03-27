@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       home: SiteLayout(),
       debugShowCheckedModeBanner: false,
-      title: 'Dash Board1',
+      title: 'Dash Board',
       theme: ThemeData(
         scaffoldBackgroundColor: light,
         textTheme:
