@@ -1,6 +1,7 @@
 import 'package:admin_panel_app/constants/controllers.dart';
 import 'package:admin_panel_app/constants/style.dart';
 import 'package:admin_panel_app/helpers/responsive.dart';
+import 'package:admin_panel_app/pages/authentication/authentication.dart';
 import 'package:admin_panel_app/routing/routes.dart';
 import 'package:admin_panel_app/widgets/custom_text.dart';
 import 'package:admin_panel_app/widgets/side_menu_items.dart';
@@ -56,12 +57,11 @@ class SideMenu extends StatelessWidget {
                           : itemName,
                       onTap: () {
                         if (itemName == authenticationPageRoute) {
-                          
+                          Get.offAll(const AuthenticationPage());
                         }
                         if (!menuController.isActive(itemName)) {
                           menuController.changeActiveItem(itemName);
-                          if (Responsive.isSmallScreen(context))
-                            Get.back();
+                          if (Responsive.isSmallScreen(context)) Get.back();
                           navigationController.navigateTo(itemName);
                         }
                       },
