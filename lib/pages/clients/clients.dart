@@ -1,5 +1,6 @@
 import 'package:admin_panel_app/constants/controllers.dart';
 import 'package:admin_panel_app/helpers/responsive.dart';
+import 'package:admin_panel_app/pages/clients/widgets/clients_table.dart';
 import 'package:admin_panel_app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,6 +23,13 @@ class ClientsPage extends StatelessWidget {
                   weight: FontWeight.bold,
                 ),
               ),
+            ],
+          ),
+        ),
+        Expanded(
+          child: ListView(
+            children: const [
+              ClientsTable(),
             ],
           ),
         ),

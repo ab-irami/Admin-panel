@@ -1,5 +1,6 @@
 import 'package:admin_panel_app/constants/controllers.dart';
 import 'package:admin_panel_app/helpers/responsive.dart';
+import 'package:admin_panel_app/pages/overview/widgets/available_drivers.dart';
 import 'package:admin_panel_app/pages/overview/widgets/overview_cards_large_screen.dart';
 import 'package:admin_panel_app/pages/overview/widgets/overview_cards_medium_screen.dart';
 import 'package:admin_panel_app/pages/overview/widgets/overview_cards_small_screen.dart';
@@ -45,7 +46,8 @@ class OverviewPage extends StatelessWidget {
               if (!Responsive.isSmallScreen(context))
                 const RevenueSectionLarge()
               else
-                const RevenueSectionSmall()
+                const RevenueSectionSmall(),
+              const AvailableDrivers()
             ],
           ),
         ),
