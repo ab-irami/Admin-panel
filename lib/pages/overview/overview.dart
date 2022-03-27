@@ -3,6 +3,8 @@ import 'package:admin_panel_app/helpers/responsive.dart';
 import 'package:admin_panel_app/pages/overview/widgets/overview_cards_large_screen.dart';
 import 'package:admin_panel_app/pages/overview/widgets/overview_cards_medium_screen.dart';
 import 'package:admin_panel_app/pages/overview/widgets/overview_cards_small_screen.dart';
+import 'package:admin_panel_app/pages/overview/widgets/revenue_section_large.dart';
+import 'package:admin_panel_app/pages/overview/widgets/revenue_section_small.dart';
 import 'package:admin_panel_app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
@@ -34,9 +36,16 @@ class OverviewPage extends StatelessWidget {
             children: [
               if (Responsive.isLargeScreen(context) ||
                   Responsive.isMediumScreen(context))
-                if (Responsive.isCustomScreen(context)) const OverViewCardMedium()
-                else const OverViewCardLarge()
-              else const OverViewCardSmall()
+                if (Responsive.isCustomScreen(context))
+                  const OverViewCardMedium()
+                else
+                  const OverViewCardLarge()
+              else
+                const OverViewCardSmall(),
+              if (!Responsive.isSmallScreen(context))
+                const RevenueSectionLarge()
+              else
+                const RevenueSectionSmall()
             ],
           ),
         ),
