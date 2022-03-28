@@ -3,6 +3,8 @@ import 'package:admin_panel_app/controllers/menu_controller.dart';
 import 'package:admin_panel_app/controllers/navigation_controller.dart';
 import 'package:admin_panel_app/layout.dart';
 import 'package:admin_panel_app/pages/authentication/authentication.dart';
+import 'package:admin_panel_app/pages/error/error.dart';
+import 'package:admin_panel_app/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,7 +21,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: const AuthenticationPage(),
+      initialRoute: authenticationPageRoute,
+      unknownRoute: GetPage(
+        name: '/not-found',
+        page: () => const PageNotFound(),
+        transition: Transition.fadeIn,
+      ),
+      getPages: [
+        GetPage(name: rootRoute, page: () => SiteLayout()),
+        GetPage(name: authenticationPageRoute, page: () => const AuthenticationPage()),
+      ],
       debugShowCheckedModeBanner: false,
       title: 'Dash Board',
       theme: ThemeData(

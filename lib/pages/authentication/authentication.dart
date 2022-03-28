@@ -1,5 +1,5 @@
 import 'package:admin_panel_app/constants/style.dart';
-import 'package:admin_panel_app/layout.dart';
+import 'package:admin_panel_app/routing/routes.dart';
 import 'package:admin_panel_app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,7 +22,11 @@ class AuthenticationPage extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(right: 12),
-                    child: Image.asset('assets/icons/shop-cart.png', width: 75, height: 75),
+                    child: Image.asset(
+                      'assets/icons/shop-cart.png',
+                      width: 75,
+                      height: 75,
+                    ),
                   ),
                   Expanded(child: Container()),
                 ],
@@ -84,9 +88,10 @@ class AuthenticationPage extends StatelessWidget {
               const SizedBox(height: 15),
               InkWell(
                 onTap: () {
-                  Get.offAll(() => SiteLayout());
+                  Get.offAllNamed(rootRoute);
+                  // Get.offAll(() => SiteLayout());
                 },
-                child: Container(                  
+                child: Container(
                   decoration: BoxDecoration(
                     color: active,
                     borderRadius: BorderRadius.circular(20),

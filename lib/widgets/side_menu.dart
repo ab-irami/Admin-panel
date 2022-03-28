@@ -1,7 +1,6 @@
 import 'package:admin_panel_app/constants/controllers.dart';
 import 'package:admin_panel_app/constants/style.dart';
 import 'package:admin_panel_app/helpers/responsive.dart';
-import 'package:admin_panel_app/pages/authentication/authentication.dart';
 import 'package:admin_panel_app/routing/routes.dart';
 import 'package:admin_panel_app/widgets/custom_text.dart';
 import 'package:admin_panel_app/widgets/side_menu_items.dart';
@@ -51,21 +50,23 @@ class SideMenu extends StatelessWidget {
           Column(
             mainAxisSize: MainAxisSize.min,
             children: sideMenuItems
-                .map((itemName) => SideMenuItems(
-                      itemName: itemName == authenticationPageRoute
-                          ? 'Log Out'
-                          : itemName,
-                      onTap: () {
-                        if (itemName == authenticationPageRoute) {
-                          Get.offAll(const AuthenticationPage());
-                        }
-                        if (!menuController.isActive(itemName)) {
-                          menuController.changeActiveItem(itemName);
-                          if (Responsive.isSmallScreen(context)) Get.back();
-                          navigationController.navigateTo(itemName);
-                        }
-                      },
-                    ))
+                .map(
+                  (item) => SideMenuItems(
+                    itemName: item.name,
+                    onTap: () {
+                      if (item.route == authenticationPageRoute) {
+                        Get.offAllNamed(authenticationPageRoute);
+                        menuController
+                            .changeActiveItem(overViewPageDisplayName);
+                      }
+                      if (!menuController.isActive(item.name!)) {
+                        menuController.changeActiveItem(item.name!);
+                        if (Responsive.isSmallScreen(context)) Get.back();
+                        navigationController.navigateTo(item.route!);
+                      }
+                    },
+                  ),
+                )
                 .toList(),
           ),
         ],
